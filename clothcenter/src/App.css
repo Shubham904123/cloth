@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+
+.f-fmly {
+      font-family: 'Cinzel', serif;
+}
+
+.bg1 {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/325876/pexels-photo-325876.jpeg?auto=compress&cs=tinysrgb&w=600');
+      height: 100vh;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      margin-top: -20px;
+}
+
+.bg3 {
+      background-color: white;
+}
+
+.bg4 {
+      margin-left: 16.2%;
+}
+
+.bg5 {
+      /* display: inline-block; */
+      position: fixed !important;
+      background-color: whitesmoke;
+      height: 100vh;
+      border-right: 2px solid gray;
+}
+
+.bg6 {
+      transition: 1s;
+}
+
+.bg6:hover {
+      transform: scale(1.05);
+}
+
+.contact-us li {
+      display: inline-block;
+}
+
+.bg7 {
+      background-color: whitesmoke;
+}
+
+@media only screen and (min-width : 992px) {
+      .nav1 {
+            display: none;
+      }
+}
+
+@media only screen and (max-width : 992px) {
+      .bg5 {
+            display: none;
+      }
+
+      .bg4 {
+            margin-left: 0;
+      }
+}
+
+.navbar {
+      background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.d-flex-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 80px);
+}
+
+.d-flex {
+      display: flex;
+}
+
+.d-flex-center h3 {
+      font-size: 35px;
+      font-weight: bold;
+}
+
+.white {
+      color: white;
+}
+
+.td1 {
+      vertical-align: inherit !important;
+}
+
+.scroll-bar1::-webkit-scrollbar {
+      width: 5px;
+}
+
+.scroll-bar1::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+}
+
+.cart-hover1 {
+
+      transition: 3s !important;
+}
+
+.cart-hover1 .btn1 {
+      display: none;
+      position: absolute;
+      width: 90%;
+      background-color: rgba(0, 0, 0, 0.5);
+      height: 290px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+}
+.btn1 .btn{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+}
+
+.cart-hover1:hover .btn1 {
+      display: block;
+}
