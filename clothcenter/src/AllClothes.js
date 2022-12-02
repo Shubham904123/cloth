@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Unavbar from "./Unavbar";
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function AllClothes() {
 
@@ -58,54 +59,62 @@ export default function AllClothes() {
         getfood3()
     }, [fname])
 
+    const dispatch = useDispatch()
+
     function addcart(x) {
-        if (user) {
-            var obj = { User: uEM }
-            var obj2 = { Pid: x._id, Fname: x.fname, Ftype: x.ftype, men: x.men, Fprc: x.fprc, Fimg: x.fimg, Fqty: 1 }
-            var data1 = Object.assign(obj, obj2)
 
-            axios.post(uri + "getcart", { em: user }).then((succ) => {
-                console.log(succ.data)
-                if (succ.data != '') {
-                    var ar = succ.data;
+        console.log({ x });
+        dispatch({
+            type: 'ADD_PRODUCT',
+            payload: x
+        })
+        // if (user) {
+        //     var obj = { User: uEM }
+        //     var obj2 = { Pid: x._id, Fname: x.fname, Ftype: x.ftype, men: x.men, Fprc: x.fprc, Fimg: x.fimg, Fqty: 1 }
+        //     var data1 = Object.assign(obj, obj2)
 
-                    for (var i = 0; i < ar.length; i++) {
-                        if (ar[i].Pid === data1.Pid) {
-                            console.log("pro hai")
-                            alert("already added")
-                            return false
-                        }
-                    }
+        //     axios.post(uri + "getcart", { em: user }).then((succ) => {
+        //         console.log(succ.data)
+        //         if (succ.data != '') {
+        //             var ar = succ.data;
 
-                    for (var count = 0; count < ar.length; count++) {
-                        if (ar[count].Pid !== data1.Pid) {
-                            console.log("pro nhi hai")
-                            axios.post(uri + "mycart", data1).then((succ) => {
-                                if (succ.data === "success") {
-                                    alert("data added to cart")
-                                } else {
-                                    alert("cant add data")
-                                }
-                            })
-                            return true;
-                        }
-                    }
+        //             for (var i = 0; i < ar.length; i++) {
+        //                 if (ar[i].Pid === data1.Pid) {
+        //                     console.log("pro hai")
+        //                     alert("already added")
+        //                     return false
+        //                 }
+        //             }
 
-                } else {
-                    console.log(succ.data)
-                    console.log("cart nhi hai")
-                    axios.post(uri + "mycart", data1).then((succ) => {
-                        if (succ.data === "success") {
-                            alert("data added to cart")
-                        } else {
-                            alert("cant add data")
-                        }
-                    })
-                }
-            })
-        } else {
-            alert("Please Login First")
-        }
+        //             for (var count = 0; count < ar.length; count++) {
+        //                 if (ar[count].Pid !== data1.Pid) {
+        //                     console.log("pro nhi hai")
+        //                     axios.post(uri + "mycart", data1).then((succ) => {
+        //                         if (succ.data === "success") {
+        //                             alert("data added to cart")
+        //                         } else {
+        //                             alert("cant add data")
+        //                         }
+        //                     })
+        //                     return true;
+        //                 }
+        //             }
+
+        //         } else {
+        //             console.log(succ.data)
+        //             console.log("cart nhi hai")
+        //             axios.post(uri + "mycart", data1).then((succ) => {
+        //                 if (succ.data === "success") {
+        //                     alert("data added to cart")
+        //                 } else {
+        //                     alert("cant add data")
+        //                 }
+        //             })
+        //         }
+        //     })
+        // } else {
+        //     alert("Please Login First")
+        // }
 
     }
     return (
